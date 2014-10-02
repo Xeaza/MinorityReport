@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) IBOutlet UIView *theFutureLabel;
+
 @end
 
 @implementation ViewController
