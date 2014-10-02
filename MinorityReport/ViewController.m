@@ -10,19 +10,35 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) IBOutlet UIView *theFutureLabel;
-
+@property (strong, nonatomic) IBOutlet UILabel *theFutureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thePreCogs;
+@property CGPoint originalCenterPoint;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.originalCenterPoint = self.theFutureLabel.center;
 }
 
 - (IBAction)onDrag:(UIPanGestureRecognizer *)panGesture {
-    NSLog(@"Pan Noodles!");
+    CGPoint point = [panGesture locationInView:self.view];
+    self.theFutureLabel.center = point;
+
+    if (panGesture.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:1.0 animations:^{
+            self.theFutureLabel.center = self.originalCenterPoint;
+        }];
+    }
+    else {
+        if (CGRectContainsPoint(self.thePreCogs.frame, point)) {
+            self.theFutureLabel.backgroundColor = [UIColor redColor];
+            self.theFutureLabel.text = @"A ficticious and incriminating future";
+            [self.theFutureLabel sizeToFit];
+        }
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

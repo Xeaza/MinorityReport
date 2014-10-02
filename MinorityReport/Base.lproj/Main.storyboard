@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fs0-f4-3Pd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Minority Report Control Center-->
@@ -16,23 +17,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Future" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqQ-iS-Tbp">
-                                <rect key="frame" x="231" y="64" width="138" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Future" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9v-S4-eRh">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="0.1059345736" green="0.89349825469999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="116" y="60" width="169" height="43"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The PreCogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RV-XT-UWS">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.4941176471" green="0.60392156860000001" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="ctx-gr-eoN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ctx-gr-eoN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ctx-gr-eoN"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="6RV-XT-UWS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="85" id="4pv-D7-Se7"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="6RV-XT-UWS" secondAttribute="bottom" constant="85" id="etU-bF-I5Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6RV-XT-UWS" secondAttribute="trailing" constant="84" id="naR-tI-rdJ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="U9v-S4-eRh"/>
+                                <exclude reference="6RV-XT-UWS"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4pv-D7-Se7"/>
+                                <exclude reference="naR-tI-rdJ"/>
+                                <exclude reference="etU-bF-I5Q"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="U9v-S4-eRh"/>
+                                <include reference="6RV-XT-UWS"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4pv-D7-Se7"/>
+                                <include reference="naR-tI-rdJ"/>
+                                <include reference="etU-bF-I5Q"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="V0w-qd-BLp" appends="YES" id="dZD-ED-sMQ"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Edu-J6-4LR"/>
                     <connections>
-                        <outlet property="theFutureLabel" destination="kh9-bI-dsS" id="khM-aV-jXW"/>
+                        <outlet property="theFutureLabel" destination="U9v-S4-eRh" id="fEs-Ly-CeT"/>
+                        <outlet property="thePreCogs" destination="6RV-XT-UWS" id="KGd-d9-Pcy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -42,7 +93,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1051" y="1050"/>
+            <point key="canvasLocation" x="1050" y="1050"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MM4-yk-vkq">
